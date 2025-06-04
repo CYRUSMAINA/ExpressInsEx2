@@ -20,7 +20,11 @@ const PORT = 3000;
 app.use(express.json());
 
 //Routes
+app.get('/', (req, res) => {
+    res.send('Welcome to the Portfolio Backend API!');
+});
 
+//API routes
 app.use('/api/project',projectRoutes);
 app.use('/api/ user',userRoutes);
 app.use('/api/contacts',contactRoutes);
