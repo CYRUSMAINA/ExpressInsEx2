@@ -1,10 +1,19 @@
 import express from 'express';
-import { getAllprojects, createContact } from '../controllers/contactController.js';
+import {createContact, deleteContact,
+    getContactbyId,getAllContact,
+    updateContact } from '../controllers/contactController.js';
 
 const router = express.Router();
 
-//post and get api projects
+//create
 router.post('/',createContact);
-router.get ('/',getAllprojects);
+//read all
+router.get ('/',getAllContact);
+//read by id
+router.get('/:id',getContactbyId);
+//update by id
+router.put('/:id',updateContact);
+//delete by id
+router.delete('/:id',deleteContact);
 
 export default router;
