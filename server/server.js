@@ -21,12 +21,12 @@ app.use(express.json());
 
 //Routes
 app.get('/', (req, res) => {
-    res.send('Welcome to the Portfolio Backend API!');
+    res.send('Welcome to the Portfolio Backend!');
 });
 
 //API routes
-app.use('/api/project',projectRoutes);
-app.use('/api/ user',userRoutes);
+app.use('/api/projects',projectRoutes);
+app.use('/api/users',userRoutes);
 app.use('/api/contacts',contactRoutes);
 
 app.listen(PORT,() => {
