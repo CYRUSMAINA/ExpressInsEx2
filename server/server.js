@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 app.use('/api/projects',projectRoutes);
 app.use('/api/users',userRoutes);
 app.use('/api/contacts',contactRoutes);
+app.use('/api/data',(req,res) => {res.status(200).json({message:'Welcome to my portfolio'})})
 
 app.listen(PORT,() => {
     console.log(`server is running on http://localhost:${PORT}`);
