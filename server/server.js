@@ -7,7 +7,7 @@ import projectRoutes from './routes/projectRoutes.js';
 
 // MongoDb connection
 
-mongoose.connect('mongodb+srv://cmaina2:123Ciira@portfoliocluster.m4agpa0.mongodb.net/mern?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://cmaina2:ciira123ma@portfoliocluster.m4agpa0.mongodb.net/mern?retryWrites=true&w=majority')
 const connection = mongoose.connection;
 connection.on('error',console.error.bind(console,'Mongodb connect error'));
 connection.once('open',() => {
