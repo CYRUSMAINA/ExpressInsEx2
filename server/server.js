@@ -3,33 +3,44 @@ import mongoose from 'mongoose';
 import contactRoutes from './routes/contactRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
+const app = express();
 
 
 // MongoDb connection
-
-mongoose.connect('mongodb+srv://cmaina2:ciira123ma@portfoliocluster.m4agpa0.mongodb.net/mern?retryWrites=true&w=majority')
-const connection = mongoose.connection;
-connection.on('error',console.error.bind(console,'Mongodb connect error'));
-connection.once('open',() => {
-    console.log('connected to MongoDb')
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
-const app = express();
 
-const PORT = 3000;
+const connection = mongoose.connection;
+connection.on('error', console.error.bind(console, 'MongoDB connection error'));
+connection.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
+// Middleware
 app.use(express.json());
 
-//Routes
+// Test route
 app.get('/', (req, res) => {
-    res.send('Welcome to the Portfolio Backend!');
+  res.send('Welcome to the Portfolio Backend!');
 });
 
-//API routes
-app.use('/api/projects',projectRoutes);
-app.use('/api/users',userRoutes);
-app.use('/api/contacts',contactRoutes);
-app.use('/api/data',(req,res) => {res.status(200).json({message:'Welcome to my portfolio'})})
+// API routes
+app.use('/api/projects', projectRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/contacts', contactRoutes);
+app.use('/api/data', (req, res) => {
+  res.status(200).json({ message: 'Welcome to my portfolio' });
+});
 
-app.listen(PORT,() => {
-    console.log(`server is running on http://localhost:${PORT}`);
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
