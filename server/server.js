@@ -37,13 +37,13 @@ app.get('/', (req, res) => {
 app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contacts', contactRoutes);
-app.use('api/auth',authRoutes);
+app.use('/api/auth',authRoutes);
 app.use('/api/data', (req, res) => {
   res.status(200).json({ message: 'Welcome to my portfolio' });
 });
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

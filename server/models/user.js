@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     password:{
-        type:Date,
+        type:String,
         required:true,
     },
     created:{
@@ -24,4 +24,5 @@ const userSchema = new mongoose.Schema({
         default:Date.now,
     }
 });
-export default mongoose.model('User',userSchema);
+export default mongoose.models.User || mongoose.model('User', userSchema);
+
