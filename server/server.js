@@ -3,7 +3,9 @@ import mongoose from 'mongoose';
 import contactRoutes from './routes/contactRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 import dotenv from 'dotenv';
+
 
 // Load environment variables
 dotenv.config();
@@ -35,6 +37,7 @@ app.get('/', (req, res) => {
 app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/contacts', contactRoutes);
+app.use('api/auth',authRoutes);
 app.use('/api/data', (req, res) => {
   res.status(200).json({ message: 'Welcome to my portfolio' });
 });
