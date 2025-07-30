@@ -1,3 +1,6 @@
+
+
+
 import express from 'express';
 import mongoose from 'mongoose';
 import contactRoutes from './routes/contactRoutes.js';
@@ -9,6 +12,7 @@ import dotenv from 'dotenv';
 
 // Load environment variables
 dotenv.config();
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
 
 const app = express();
 
