@@ -9,9 +9,9 @@
     "start": "npm-run-all --parallel start:react-portfolio start:server",
     "start:react-portfolio": "npm --prefix react-portfolio run dev",
     "start:server": "npm --prefix server run dev",
-    "build": "npm-run-all --parallel build:react-portfolio build:server",
-    "build:react-portfolio": "npm --prefix react-portfolio run build",
-    "build:server": "npm --prefix server run build"
+    "build": "npm-run-all --parallel build:react-portfolio",
+    "build:react-portfolio": "npm --prefix react-portfolio run build"
+    
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",
@@ -29,7 +29,7 @@
     "url": "git+https://github.com/CYRUSMAINA/ExpressInsEx2.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "cyrusmaina",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CYRUSMAINA/ExpressInsEx2/issues"

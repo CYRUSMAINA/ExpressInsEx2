@@ -2,13 +2,13 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User from '../models/User.js'; // make sure your User model is set up
+import User from '../models/User.js'; 
 import dotenv from 'dotenv';
 dotenv.config();
 
 const router = express.Router();
 
-// POST /api/auth/login
+//api/auth/login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 

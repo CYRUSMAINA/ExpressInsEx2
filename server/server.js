@@ -7,8 +7,15 @@ import contactRoutes from './routes/contactRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
 import authRoutes from './routes/authRoutes.js';
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
 import dotenv from 'dotenv';
 
+//create dirname for equivalent to ES modules
+const _filename = fileURLToPath(import.meta.url);
+const _dirname =path.dirname(_filename);
 
 // Load environment variables
 dotenv.config();
@@ -44,6 +51,10 @@ app.use('/api/contacts', contactRoutes);
 app.use('/api/auth',authRoutes);
 app.use('/api/data', (req, res) => {
   res.status(200).json({ message: 'Welcome to my portfolio' });
+});
+app.use(express.static(path.join(_dirname, '../react-portfolio/dist')));
+app.get ('*',(req,res)=> {
+  res.sendFile(path.join(_dirname, '../react-portfolio/dist/index.html'))
 });
 
 // Start server
